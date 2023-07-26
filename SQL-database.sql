@@ -21,8 +21,8 @@ create table
     create table
     endereco(
         id tinyint AUTO_INCREMENT NOT NULL,
-        nome_cliente VARCHAR(14) NOT NULL,
-        Foreign Key (nome_cliente) REFERENCES cliente(cnpj),
+        cnpj_cliente VARCHAR(14) NOT NULL,
+        Foreign Key (cnpj_cliente) REFERENCES cliente(cnpj),
         logradouro VARCHAR (30) NOT NULL,
         bairro VARCHAR(30) NOT NULL,
 		cidade VARCHAR(30) NOT NULL,
@@ -33,11 +33,12 @@ create table
     
     create table
     contato (
-		proprietario VARCHAR(14) NOT NULL,
+        pid int AUTO_INCREMENT NOT NULL,
+		cnpj_cliente VARCHAR(14) NOT NULL,
         nome VARCHAR (80) NOT NULL,
         cargo VARCHAR(40) NOT NULL,
         telefone VARCHAR(11) NOT NULL,
         email VARCHAR(30) NOT NULL,
-        Foreign Key (proprietario) REFERENCES cliente(cnpj),
-        PRIMARY KEY(telefone)
+        Foreign Key (cnpj_cliente) REFERENCES cliente(cnpj),
+        PRIMARY KEY(pid)
     );

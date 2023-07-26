@@ -6,3 +6,21 @@
     # localhost/clientes/id (GET)
     # localhost/clientes/id (PUT)
     # localhost/clientes (DELETE)
+
+from DAOS.clienteDAO import ClienteDAO
+from DAOS.contatoDAO import ContatoDAO
+from DAOS.enderecoDAO import EnderecoDAO
+
+end =  EnderecoDAO()
+end.delete_endereco(1)
+print(end.select_endereco(8))
+
+#cliDAO = ClienteDAO()
+#cliDAO.insert_cliente("paulo", 8)
+
+#clientDAO = ContatoDAO()
+#clientDAO.insert_contato(8,"rogerio", "gestor", 888, "aal")
+#print("oi")
+#print(clientDAO.select_contato(8))
+
+#clientDAO.delete_cliente(2)
