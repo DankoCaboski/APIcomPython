@@ -68,5 +68,15 @@ def delete(cnpj):
     DAOcliente.delete_cliente(cnpj)
     return '', 200
 
+@app.route('/clientes/contatos/<int:id>',methods=['GET'])
+def contatos(id):
+    contatos=[]
+    for i in DAOcontato.select_contato(id):
+        contatos.append(i)
+
+    if len(contatos)>=1:
+        return jsonify(contatos)
+    else:
+        return jsonify([])
 
 app.run(port=5000,host='localhost',debug=True)
